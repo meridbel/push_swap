@@ -4,4 +4,4 @@ COMMIT = $(GIT) commit -m "push_swap"
 PUSH = $(GIT) push
 
 all:
-	$(ADD) && $(COMMIT) && $(PUSH)
+	cd .. && $(ADD) && $(COMMIT) && $(PUSH)
