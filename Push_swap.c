@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 23:11:28 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/22 18:39:36 by meridbel         ###   ########.fr       */
+/*   Updated: 2025/12/22 18:55:01 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ int main (int ac, char **av)
         {
             if (check_error(split[i]) == 0)
                 return (0);
-            else if (!check_valid_number(av[i]))
+            else if (!check_valid_number(split[i]))
                 return(0);
             i++;
         }
         k++;
     }
-    printf("mzyan");
     return (0);
 }
