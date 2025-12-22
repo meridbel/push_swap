@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 23:11:28 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/22 16:14:24 by meridbel         ###   ########.fr       */
+/*   Updated: 2025/12/22 18:39:36 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,24 @@ int main (int ac, char **av)
 
     k = 1;
     i = 0;
+    if (ac == 1)
+            return (0);
     while (k < ac)
     {
         split = ft_split(av[k], ' ');
         if (!split)
             return (0);
+        i = 0;
         while (split[i])
         {
-            if (check_error(ac, split[i]) == 0)
-                return (free(split[i]),0);
+            if (check_error(split[i]) == 0)
+                return (0);
+            else if (!check_valid_number(av[i]))
+                return(0);
             i++;
         }
-        free(split);
         k++;
     }
+    printf("mzyan");
     return (0);
 }

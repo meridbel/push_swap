@@ -4,8 +4,9 @@
 #include <stdlib.h>
 #include <stdio.h> // mshini
 
-int check_error(int ac, char *av);
+int check_error(char *av);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
+int check_valid_number(char *str);
 
 #endif

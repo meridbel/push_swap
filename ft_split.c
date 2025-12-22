@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 00:05:09 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/22 00:58:56 by meridbel         ###   ########.fr       */
+/*   Updated: 2025/12/22 17:46:53 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,17 @@ char	**ft_split(char const *s, char c)
 	if (split == NULL)
 		return (NULL);
 	return (complet_split(s, split, c));
+}
+
+int main ()
+{
+	char *str = "   54   625 623  ";
+	char **split;
+	split = ft_split(str, ' ');
+	int i = 0;
+	while (i < 3)
+	{
+		printf("%s\n", split[i]);
+		i++;
+	}
 }
