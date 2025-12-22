@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Push_swap.c                                        :+:      :+:    :+:   */
+/*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/20 23:11:28 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/22 16:14:24 by meridbel         ###   ########.fr       */
+/*   Created: 2025/12/22 00:06:12 by meridbel          #+#    #+#             */
+/*   Updated: 2025/12/22 16:02:13 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main (int ac, char **av)
+int check_valid_string(char a)
 {
-    int k;
-    int i;
-    char **split;
+    if (!(a >= '0' && a <= '9'))
+        return (0);
 
-    k = 1;
+    return (1);
+}
+
+int check_error(int ac, char *av)
+{
+    int i;
+
     i = 0;
-    while (k < ac)
+    if (!av)
+        return (0);
+    while (av[i])
     {
-        split = ft_split(av[k], ' ');
-        if (!split)
+        if (ac == 1)
             return (0);
-        while (split[i])
+        else if (!check_valid_string(av[i]))
         {
-            if (check_error(ac, split[i]) == 0)
-                return (free(split[i]),0);
-            i++;
+            write(2, "Error", 5);
+            return (0);
         }
-        free(split);
-        k++;
+        i++;
     }
-    return (0);
+    return (1);
 }
