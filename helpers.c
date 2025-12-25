@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:01:05 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/22 01:02:55 by meridbel         ###   ########.fr       */
+/*   Updated: 2025/12/24 23:07:04 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strdup(const char *s)
+static char	*ft_strdup(const char *s)
 {
 	size_t	i;
 	size_t	srclen;
