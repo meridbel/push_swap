@@ -29,5 +29,9 @@ void rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void reverse_rotate_a(t_stack **stack_a);
 void reverse_rotate_b(t_stack **stack_b);
 void reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b);
+void sort(t_stack **stack_a);
+int greater_than(t_stack *header);
+void sort_three_numbers(t_stack **stack_a);
+void    four_five_numbers(t_stack **stack_a, t_stack **stack_b);
 
 #endif

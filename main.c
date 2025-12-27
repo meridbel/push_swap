@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 23:11:28 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/25 23:12:17 by meridbel         ###   ########.fr       */
+/*   Updated: 2025/12/26 15:39:50 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,15 @@ static int start_function(int k, int ac, int *numbers, char **av, t_stack **stac
     return (1);
 }
 
-void print_stack(t_stack *stack_a) //remove these function
-{
-    while (stack_a)
-    {
-        printf("%d ", stack_a->value);
-        stack_a = stack_a->next;
-    }
-    printf("\n");
-}
-
 int main (int ac, char **av)
 {
     int numbers;
     t_stack *stack_a;
-    t_stack *stack_b;
 
     stack_a = NULL;
-    stack_b = NULL;
     numbers = 0;
     if (ac == 1 || !start_function(1, ac, &numbers, av, &stack_a))
             return (0);
+    sort(&stack_a);
     return (0);
 }
