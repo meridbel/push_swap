@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 11:50:48 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/30 18:33:32 by meridbel         ###   ########.fr       */
+/*   Updated: 2025/12/30 18:48:30 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ static int find_the_max(t_stack *stack_b)
     }
     return (index);
 }
+
+
 
 static void push_back_to_a(t_stack **stack_a,t_stack **stack_b)
 {
