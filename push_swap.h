@@ -7,6 +7,7 @@
 typedef struct s_stack
 {
     int value;
+    int rank;
     struct s_stack *next;
 } t_stack;
 
@@ -32,6 +33,8 @@ void reverse_rotate_ab(t_stack **stack_a, t_stack **stack_b);
 void sort(t_stack **stack_a);
 int greater_than(t_stack *header);
 void sort_three_numbers(t_stack **stack_a);
-void    four_five_numbers(t_stack **stack_a, t_stack **stack_b);
+void    four_numbers(t_stack **stack_a, t_stack **stack_b);
+void the_big_algo(t_stack **stack_a, t_stack **stack_b, int numbers_in_stack);
+void the_big_algo_2(t_stack **stack_a, t_stack **stack_b);
 
 #endif
