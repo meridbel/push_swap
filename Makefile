@@ -20,4 +20,8 @@ fclean: clean
 
 re: fclean all
 
+# test: all
+# 	ARG = 
+# 	./push_swap 
+
 .PHONY:	all clean fclean re

@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 23:11:28 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/26 15:39:50 by meridbel         ###   ########.fr       */
+/*   Updated: 2025/12/31 19:01:54 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,43 +24,68 @@ static char	**ft_free(char **split, int x)
 	return (NULL);
 }
 
+void free_stack(t_stack *stack_a)
+{
+	t_stack *tmp;
+	while (stack_a)
+	{
+		tmp = stack_a->next;
+		free(stack_a);
+		stack_a = tmp;
+	}
+}
+
 static int start_function(int k, int ac, int *numbers, char **av, t_stack **stack_a)
 {
-     char **split;
-     int i;
+	 char **split;
+	 int i;
 
-     while (k < ac)
-     { 
-         split = ft_split(av[k], ' ');
-         if (!split || !split[0])
-                 return (write(2, "Error\n", 6), 0);
-        i = 0;
-        while (split[i])
-        {
-            if (!check_error(split[i]) || !ft_atoi(split[i], numbers)
-            || !is_duplicate(*stack_a, *numbers))
-            {
-                ft_free(split, i);
-                return (write(2, "Error\n", 6), 0);
-            }
-            add_number(stack_a, *numbers);
-            i++;
-        }
-        ft_free(split, i);
-        k++;
-    }
-    return (1);
+	 while (k < ac)
+	 { 
+		 split = ft_split(av[k], ' ');
+		 if (!split || !split[0])
+				 return (write(2, "Error\n", 8), 0);
+		i = 0;
+		while (split[i])
+		{
+			if (check_error(split[i]) || !ft_atoi(split[i], numbers)
+			|| is_duplicate(*stack_a, *numbers))
+			{
+				ft_free(split, i);
+				free_stack(*stack_a);
+				return (write(2, "Error\n", 8), 0);
+			}
+			add_number(stack_a, *numbers);
+			i++;
+		}
+		ft_free(split, i);
+		k++;
+	}
+	return (1);
+}
+
+static int check_sorted(t_stack *stack_a)
+{
+	while (stack_a && stack_a -> next != NULL)
+	{
+		if (stack_a -> value > (stack_a) ->next -> value )
+			return (1);
+		stack_a = stack_a->next;
+	}
+	return (0);
 }
 
 int main (int ac, char **av)
 {
-    int numbers;
-    t_stack *stack_a;
+	int numbers;
+	t_stack *stack_a;
 
-    stack_a = NULL;
-    numbers = 0;
-    if (ac == 1 || !start_function(1, ac, &numbers, av, &stack_a))
-            return (0);
-    sort(&stack_a);
-    return (0);
+	stack_a = NULL;
+	numbers = 0;
+	if (ac == 1 || !start_function(1, ac, &numbers, av, &stack_a))
+			return (0);
+	if (check_sorted(stack_a) == 0)
+		return (0);
+	sort(&stack_a);
+	return (0);
 }
