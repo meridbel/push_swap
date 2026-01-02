@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   big_algo2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: meridbel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 18:08:23 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/31 18:12:28 by meridbel         ###   ########.fr       */
+/*   Updated: 2026/01/02 15:16:48 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	index_of_next_chunk(t_stack *a, int limit)
+int	index_of_next_chunk(t_stack *a, int limit)
 {
 	int	i;
 
@@ -52,36 +52,18 @@ static int	find_the_max(t_stack *stack_b)
 static void	push_stack_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	int	chunk;
-	int	pushed;
 	int	limit;
-	int	index;
 	int	size;
 
+	limit = 0;
 	size = calc_number_in_stack(*stack_a);
 	if (size <= 100)
 		chunk = 15;
 	else
 		chunk = 30;
-	pushed = 0;
 	while (*stack_a)
 	{
-		limit = chunk + pushed;
-		if ((*stack_a)->rank < limit)
-		{
-			push_b(stack_a, stack_b);
-			if ((*stack_b)->rank <= pushed)
-				rotate_b(stack_b);
-			pushed++;
-		}
-		else
-		{
-			index = index_of_next_chunk(*stack_a, limit);
-			size = calc_number_in_stack(*stack_a);
-			if (index <= size / 2)
-				rotate_a(stack_a);
-			else
-				reverse_rotate_a(stack_a);
-		}
+		helper_of_a_to_b(stack_b, stack_a, limit, chunk);
 	}
 }
 
@@ -101,7 +83,8 @@ static void	push_back_to_a(t_stack **stack_a, t_stack **stack_b)
 		}
 		else
 		{
-			while (index++ < size)
+			int rotations = size - index;
+			while (rotations-- > 0)
 				reverse_rotate_b(stack_b);
 		}
 		push_a(stack_a, stack_b);

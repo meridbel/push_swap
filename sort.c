@@ -6,16 +6,16 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 23:04:12 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/31 19:02:53 by meridbel         ###   ########.fr       */
+/*   Updated: 2026/01/02 14:43:59 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int greater_than(t_stack *header)
+int	greater_than(t_stack *header)
 {
-	t_stack *first;
-	t_stack *second;
+	t_stack	*first;
+	t_stack	*second;
 
 	first = header;
 	second = first->next;
@@ -24,10 +24,10 @@ int greater_than(t_stack *header)
 	return (1);
 }
 
-static void sort_small_numbers(t_stack **stack_a, t_stack **stack_b)
+static void	sort_small_numbers(t_stack **stack_a, t_stack **stack_b)
 {
-	int numbers_in_stack;
-	
+	int	numbers_in_stack;
+
 	numbers_in_stack = calc_number_in_stack(*stack_a);
 	if (numbers_in_stack == 2)
 		if (!greater_than(*stack_a))
@@ -39,10 +39,11 @@ static void sort_small_numbers(t_stack **stack_a, t_stack **stack_b)
 		four_numbers(stack_a, stack_b);
 	}
 }
-void sort(t_stack **stack_a)
+
+void	sort(t_stack **stack_a)
 {
-	t_stack *stack_b;
-	int numbers_in_stack;
+	t_stack	*stack_b;
+	int		numbers_in_stack;
 
 	stack_b = NULL;
 	numbers_in_stack = calc_number_in_stack(*stack_a);

@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 00:50:59 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/31 18:37:36 by meridbel         ###   ########.fr       */
+/*   Updated: 2026/01/02 15:18:42 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ void	the_big_algo(t_stack **stack_a, t_stack **stack_b, int numbers_in_stack)
 	int	*array;
 	int	i;
 
-	array = set_array(stack_a, numbers_in_stack);
 	i = 0;
+	array = set_array(stack_a, numbers_in_stack);
 	if (!array)
 		return ;
 	array = sort_the_array(array, numbers_in_stack);
@@ -86,4 +86,5 @@ void	the_big_algo(t_stack **stack_a, t_stack **stack_b, int numbers_in_stack)
 		i++;
 	}
 	the_big_algo_2(stack_a, stack_b);
+	free (array);
 }

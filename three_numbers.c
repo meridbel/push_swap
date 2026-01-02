@@ -6,18 +6,18 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/25 00:52:12 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/31 19:03:16 by meridbel         ###   ########.fr       */
+/*   Updated: 2025/12/31 19:46:12 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int calc_number_in_stack(t_stack *stack_a)
+int	calc_number_in_stack(t_stack *stack_a)
 {
-	int number;
-	
+	int	number;
+
 	number = 0;
-	while(stack_a)
+	while (stack_a)
 	{
 		stack_a = stack_a->next;
 		number++;
@@ -25,11 +25,11 @@ int calc_number_in_stack(t_stack *stack_a)
 	return (number);
 }
 
-static void finish_sort_three_numbers(t_stack **stack_a)
+static void	finish_sort_three_numbers(t_stack **stack_a)
 {
-	t_stack *first;
-	t_stack *second;
-	t_stack *third;            
+	t_stack	*first;
+	t_stack	*second;
+	t_stack	*third;
 
 	first = *stack_a;
 	second = first->next;
@@ -37,24 +37,24 @@ static void finish_sort_three_numbers(t_stack **stack_a)
 	if ((first->value < second->value) && (second->value > third->value))
 	{
 		if (first->value < third->value)
-			{
-				swap_a(stack_a);
-				rotate_a(stack_a);
-			}
+		{
+			swap_a(stack_a);
+			rotate_a(stack_a);
+		}
 		else
-			{
-				swap_a(stack_a);
-				rotate_a(stack_a);
-				swap_a(stack_a);
-			}
+		{
+			swap_a(stack_a);
+			rotate_a(stack_a);
+			swap_a(stack_a);
+		}
 	}
 }
 
- void  sort_three_numbers(t_stack **stack_a)
+void	sort_three_numbers(t_stack **stack_a)
 {
-	t_stack *first;
-	t_stack *second;
-	t_stack *third;            
+	t_stack	*first;
+	t_stack	*second;
+	t_stack	*third;
 
 	first = *stack_a;
 	second = first->next;

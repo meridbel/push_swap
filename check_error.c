@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 00:06:12 by meridbel          #+#    #+#             */
-/*   Updated: 2025/12/31 18:52:19 by meridbel         ###   ########.fr       */
+/*   Updated: 2026/01/01 20:25:25 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	check_error(char *av)
 	{
 		if (av[i + 1] == '\0')
 		{
-			write(1, "Error\n", 6);
 			return (1);
 		}
 		i++;
@@ -32,7 +31,6 @@ int	check_error(char *av)
 	{
 		if (av[i] < '0' || av[i] > '9')
 		{
-			write(1, "Error\n", 6);
 			return (1);
 		}
 		i++;
@@ -60,7 +58,6 @@ int	ft_atoi(const char *nptr, int *num)
 	m = m * sign;
 	if ((sign == 1 && m > 2147483647) || (sign == -1 && m < -2147483648))
 	{
-		write(1, "Error\n", 6);
 		return (0);
 	}
 	*num = (int)m;
