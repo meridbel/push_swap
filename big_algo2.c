@@ -6,7 +6,7 @@
 /*   By: meridbel <meridbel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/31 18:08:23 by meridbel          #+#    #+#             */
-/*   Updated: 2026/01/02 15:16:48 by meridbel         ###   ########.fr       */
+/*   Updated: 2026/01/02 15:31:42 by meridbel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,7 @@ static void	push_back_to_a(t_stack **stack_a, t_stack **stack_b)
 		}
 		else
 		{
-			int rotations = size - index;
-			while (rotations-- > 0)
+			while (index++ < size)
 				reverse_rotate_b(stack_b);
 		}
 		push_a(stack_a, stack_b);
